@@ -1,66 +1,168 @@
 # @jeffersonwarrior/ccpm
 
-This converts the CCPM (Claude Code Project Management) system into a proper plugin that can be easily installed, managed, and updated.
+Claude Code PM - Complete project management workflow for spec-driven development, GitHub issues, Git worktrees, and parallel AI agents.
 
-## Quick Start
+This plugin turns PRDs into epics, then issues, then code - with full traceability and parallel execution through multiple AI agents.
 
-### Install the Plugin
+## 🚀 Installation
+
+### Method 1: Claude Code Marketplace (Recommended)
 ```bash
-# Using the plugin installer
+# Add the marketplace
+/plugin marketplace add https://github.com/jeffersonwarrior/ccpm
+
+# Install the plugin
+/plugin install ccpm
+```
+
+### Method 2: Direct Repository Install
+```bash
+# Install directly from GitHub
+/plugin install https://github.com/jeffersonwarrior/ccpm.git
+```
+
+### Method 3: Manual Installation
+```bash
+# Clone the repository
+git clone https://github.com/jeffersonwarrior/ccpm.git
+cd ccpm
+
+# Run the installer
 node install-plugin.js install
 
-# Or using npm (if published)
+# Then install in Claude Code
+/plugin install .
+```
+
+### Method 4: npm Package (Future)
+```bash
 npm install @jeffersonwarrior/ccpm
 ```
 
-### Initialize CCPM in Your Project
+## 🎯 Quick Start
+
+1. **Install the plugin** using one of the methods above
+2. **Initialize CCPM** in your project:
+   ```bash
+   /pm init
+   ```
+3. **Create your first PRD**:
+   ```bash
+   /pm prd-new
+   ```
+4. **Parse PRD into issues**:
+   ```bash
+   /pm prd-parse
+   ```
+5. **Start working**:
+   ```bash
+   /pm epic-start <epic-name>
+   ```
+
+## 📋 Complete Command Reference
+
+### 🔧 Setup & Configuration
 ```bash
-# After plugin installation, run
-/pm init
+/pm init                    # Initialize CCPM in current project
+/pm help                    # Show all available commands
+/pm status                  # Show current project status
+/pm validate                # Validate project configuration
+/pm sync                    # Sync with GitHub issues
 ```
 
-## Plugin Commands
-
-### Plugin Management
+### 📄 PRD (Product Requirements Document) Management
 ```bash
-# Install CCPM plugin
-node install-plugin.js install
-
-# Update CCPM plugin
-node install-plugin.js update
-
-# Uninstall CCPM plugin
-node install-plugin.js uninstall
-
-# Check plugin status
-node install-plugin.js status
-
-# Show help
-node install-plugin.js help
+/pm prd-new                 # Create new PRD
+/pm prd-list                # List all PRDs
+/pm prd-status              # Show PRD status
+/pm prd-edit <name>         # Edit existing PRD
+/pm prd-parse               # Parse PRD into GitHub issues
 ```
 
-### CCPM Workflow Commands
-Once installed, you get access to all CCPM commands:
-
+### 🏗️ Epic Management
 ```bash
-# Project management
-/pm init                    # Initialize CCPM in project
-/pm status                  # Show project status
-/pm help                    # Show all commands
+/pm epic-list               # List all epics
+/pm epic-show <name>        # Show epic details
+/pm epic-start <name>       # Start working on epic
+/pm epic-start-worktree <name>  # Start epic in Git worktree
+/pm epic-status             # Show epic status
+/pm epic-edit <name>        # Edit epic details
+/pm epic-decompose <name>   # Decompose epic into issues
+/pm epic-merge <name>       # Merge completed epic
+/pm epic-close <name>       # Close epic
+/pm epic-oneshot <name>     # Complete epic in one go
+/pm epic-refresh <name>     # Refresh epic with latest changes
+/pm epic-sync               # Sync all epics with GitHub
+```
 
-# Epic management
-/pm epic-list              # List all epics
-/pm epic-start <name>      # Start working on an epic
-/pm epic-status            # Show epic status
+### 🎫 Issue Management
+```bash
+/pm issue-list              # List all issues (filtered by status)
+/pm issue-show <number>     # Show issue details
+/pm issue-start <number>    # Start working on issue
+/pm issue-status            # Show issue status
+/pm issue-edit <number>     # Edit issue details
+/pm issue-close <number>    # Close issue
+/pm issue-reopen <number>   # Reopen closed issue
+/pm issue-analyze <number>  # Analyze issue requirements
+/pm issue-sync              # Sync issues with GitHub
+```
 
-# Issue management
-/pm issue-start <number>   # Start working on issue
-/pm issue-status           # Show issue status
+### 📊 Project Management
+```bash
+/pm standup                 # Generate daily standup report
+/pm next                    # Show next task to work on
+/pm blocked                 # Show blocked tasks
+/pm in-progress             # Show tasks in progress
+/pm search <query>          # Search across issues, epics, PRDs
+/pm clean                   # Clean up old data
+```
 
-# PRD management
-/pm prd-new                # Create new PRD
-/pm prd-list               # List PRDs
-/pm prd-parse              # Parse PRD into issues
+### 🧪 Testing & Quality
+```bash
+/testing:prime              # Configure testing setup
+/testing:run [target]       # Execute tests intelligently
+/pm test-reference-update   # Update test references
+```
+
+### 📝 Context Management
+```bash
+/context:create             # Create initial project documentation
+/context:update             # Refresh context with changes
+/context:prime              # Load context into conversation
+```
+
+### 🔀 Git & GitHub Integration
+```bash
+/pm import                  # Import existing GitHub issues
+/code-rabbit                # Process CodeRabbit comments intelligently
+```
+
+## 🔄 Typical Workflow
+
+### 1. Project Setup
+```bash
+/pm init                    # Initialize CCPM
+```
+
+### 2. Product Planning
+```bash
+/pm prd-new                 # Create PRD
+/pm prd-parse               # Parse into issues
+```
+
+### 3. Development Workflow
+```bash
+/pm epic-decompose <name>   # Break down epic
+/pm epic-start <name>       # Start epic
+/pm issue-start <number>    # Work on specific issue
+```
+
+### 4. Daily Operations
+```bash
+/pm standup                 # Daily status
+/pm next                    # What to work on next
+/pm status                  # Overall project status
 ```
 
 ## Plugin Architecture
