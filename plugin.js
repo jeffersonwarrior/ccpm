@@ -13,7 +13,7 @@ const { execSync } = require('child_process');
 class CCPMPlugin {
   constructor() {
     this.name = '@jeffersonwarrior/ccpm';
-    this.version = '1.0.1';
+    this.version = '1.0.2';
     this.description = 'Claude Code PM - Project management workflow plugin';
     this.repoUrl = 'https://github.com/jeffersonwarrior/ccpm.git';
     this.ccpmDir = path.join(process.cwd(), 'ccpm');
@@ -68,12 +68,36 @@ class CCPMPlugin {
     const claudeDir = path.join(process.cwd(), '.claude');
     const commandsDir = path.join(claudeDir, 'commands');
 
-    if (fs.existsSync(commandsDir)) {
-      const ccpmCommandsDir = path.join(this.ccpmDir, 'commands');
-      if (fs.existsSync(ccpmCommandsDir)) {
-        console.log('🔗 Setting up command symlinks...');
-        // You could add symlink creation logic here if needed
-      }
+    // Create .claude/commands directory if it doesn't exist
+    if (!fs.existsSync(commandsDir)) {
+      fs.mkdirSync(commandsDir, { recursive: true });
+      console.log('📁 Created .claude/commands directory');
+    }
+
+    const ccpmCommandsDir = path.join(process.cwd(), 'commands');
+    if (fs.existsSync(ccpmCommandsDir)) {
+      console.log('🔗 Setting up command symlinks...');
+
+      // Get all command files from ccpm/commands
+      const commandFiles = fs.readdirSync(ccpmCommandsDir);
+
+      commandFiles.forEach(file => {
+        const sourcePath = path.join(ccpmCommandsDir, file);
+        const targetPath = path.join(commandsDir, file);
+
+        // Remove existing file/symlink
+        if (fs.existsSync(targetPath)) {
+          fs.unlinkSync(targetPath);
+        }
+
+        // Create symlink
+        fs.symlinkSync(sourcePath, targetPath);
+        console.log(`   ✅ Linked: /${file.replace('.md', '')}`);
+      });
+
+      console.log(`✅ Created ${commandFiles.length} command symlinks`);
+    } else {
+      console.log('⚠️  CCPM commands directory not found');
     }
   }
 

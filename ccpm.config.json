@@ -1,0 +1,49 @@
+{
+  "project": {
+    "name": "ccpm",
+    "description": "Claude Code Project Management - Complete project management workflow for spec-driven development, GitHub issues, Git worktrees, and parallel AI agents.",
+    "version": "1.0.0",
+    "repository": {
+      "url": "https://github.com/jeffersonwarrior/ccpm",
+      "owner": "jeffersonwarrior",
+      "name": "ccpm",
+      "defaultBranch": "main"
+    }
+  },
+  "directories": {
+    "ccpm": "ccpm",
+    "specs": "specs", 
+    "worktrees": "worktrees"
+  },
+  "github": {
+    "enabled": true,
+    "issueLabels": [
+      "epic",
+      "feature", 
+      "bug",
+      "enhancement",
+      "documentation",
+      "testing",
+      "infrastructure"
+    ],
+    "priorities": ["low", "medium", "high", "critical"],
+    "statuses": ["backlog", "in-progress", "review", "done"]
+  },
+  "workflow": {
+    "branchNaming": {
+      "epic": "epic/{name}",
+      "feature": "feature/{name}",
+      "bugfix": "bugfix/{name}",
+      "hotfix": "hotfix/{name}"
+    },
+    "autoAssignIssues": true,
+    "requireReviewForMerge": true
+  },
+  "ai": {
+    "maxConcurrentAgents": 3,
+    "defaultAgentModel": "sonnet-4-5",
+    "timeoutMinutes": 30
+  },
+  "created": "2025-10-21T00:00:00Z",
+  "lastUpdated": "2025-10-21T00:00:00Z"
+}
