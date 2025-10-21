@@ -1,6 +1,6 @@
 {
   "name": "@jeffersonwarrior/ccpm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Claude Code PM - Project management workflow plugin for spec-driven development, GitHub issues, Git worktrees, and parallel AI agents",
   "main": "plugin.js",
   "author": "Jefferson Nunn",

@@ -24,3 +24,15 @@ Thumbs.db
 # Logs
 logs/
 *.log
+
+# Docker testing files
+Dockerfile
+docker-compose.yml
+plugin-test.sh
+test-data/
+
+# Temporary testing files
+*.tmp
+test-*.sh
+test-extracted.sh
+ccpm-plugin-temp/
