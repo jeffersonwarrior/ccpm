@@ -87,15 +87,47 @@ class CCPMPlugin {
 
         // Remove existing file/symlink
         if (fs.existsSync(targetPath)) {
-          fs.unlinkSync(targetPath);
+          try {
+            fs.unlinkSync(targetPath);
+          } catch (error) {
+            console.log(`   ⚠️  Could not remove existing ${file}: ${error.message}`);
+          }
         }
 
-        // Create symlink
-        fs.symlinkSync(sourcePath, targetPath);
-        console.log(`   ✅ Linked: /${file.replace('.md', '')}`);
+        // Check if source is a valid file (not a broken symlink)
+        let validSource = true;
+        try {
+          const stats = fs.lstatSync(sourcePath);
+          if (stats.isSymbolicLink()) {
+            // Check if symlink is valid
+            fs.readlinkSync(sourcePath);
+            // Try to read the target to verify it's accessible
+            fs.accessSync(sourcePath);
+          }
+        } catch (error) {
+          console.log(`   ⚠️  Skipping invalid source file: ${file} (${error.message})`);
+          validSource = false;
+        }
+
+        if (validSource) {
+          try {
+            // Create symlink
+            fs.symlinkSync(sourcePath, targetPath);
+            console.log(`   ✅ Linked: /${file.replace('.md', '')}`);
+          } catch (error) {
+            console.log(`   ❌ Failed to link ${file}: ${error.message}`);
+            // Fallback: copy the file instead of creating a symlink
+            try {
+              fs.copyFileSync(sourcePath, targetPath);
+              console.log(`   📋 Copied: /${file.replace('.md', '')} (fallback)`);
+            } catch (copyError) {
+              console.log(`   ❌ Failed to copy ${file}: ${copyError.message}`);
+            }
+          }
+        }
       });
 
-      console.log(`✅ Created ${commandFiles.length} command symlinks`);
+      console.log(`✅ Processed ${commandFiles.length} command files`);
     } else {
       console.log('⚠️  CCPM commands directory not found');
     }
