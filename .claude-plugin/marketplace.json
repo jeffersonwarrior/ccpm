@@ -12,7 +12,7 @@
     {
       "name": "ccpm",
       "description": "Complete project management workflow for Claude Code with spec-driven development, GitHub issues, Git worktrees, and parallel AI agents",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "author": {
         "name": "Jefferson Nunn",
         "url": "https://jeffersonnunn.com"
