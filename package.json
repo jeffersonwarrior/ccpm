@@ -1,0 +1,39 @@
+{
+  "name": "@jeffersonwarrior/ccpm",
+  "version": "1.0.1",
+  "description": "Claude Code PM - Project management workflow plugin for spec-driven development, GitHub issues, Git worktrees, and parallel AI agents",
+  "main": "plugin.js",
+  "author": "Jefferson Nunn",
+  "license": "MIT",
+  "homepage": "https://jeffersonnunn.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffersonwarrior/ccpm.git"
+  },
+  "keywords": [
+    "claude-code",
+    "project-management",
+    "github-issues",
+    "git-worktrees",
+    "ai-agents",
+    "spec-driven-development"
+  ],
+  "engines": {
+    "claude-code": ">=1.0.0"
+  },
+  "capabilities": [
+    "slash-commands",
+    "file-operations",
+    "git-operations",
+    "github-integration"
+  ],
+  "dependencies": {
+    "git": "^1.0.0",
+    "github-api": "^1.0.0"
+  },
+  "ccpm": {
+    "version": "latest",
+    "install-path": "./ccpm",
+    "config-file": "ccpm.config"
+  }
+}

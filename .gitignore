@@ -1,0 +1,26 @@
+# CCPM Plugin
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# CCPM installation (created by plugin)
+ccpm/
+
+# Backup files
+*.backup
+ccpm.config.backup
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
