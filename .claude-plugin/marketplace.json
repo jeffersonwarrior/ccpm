@@ -1,0 +1,65 @@
+{
+  "name": "Jefferson's CCPM Marketplace",
+  "description": "Personal marketplace for Jefferson Nunn's Claude Code plugins",
+  "version": "1.0.0",
+  "author": "Jefferson Nunn",
+  "homepage": "https://jeffersonnunn.com",
+  "plugins": [
+    {
+      "name": "@jeffersonwarrior/ccpm",
+      "displayName": "CCPM - Claude Code Project Management",
+      "description": "Complete project management workflow for Claude Code with spec-driven development, GitHub issues, Git worktrees, and parallel AI agents",
+      "version": "1.0.1",
+      "author": "Jefferson Nunn",
+      "license": "MIT",
+      "homepage": "https://jeffersonnunn.com",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/jeffersonwarrior/ccpm.git"
+      },
+      "main": "plugin.js",
+      "keywords": [
+        "claude-code",
+        "project-management",
+        "github-issues",
+        "git-worktrees",
+        "ai-agents",
+        "spec-driven-development",
+        "workflow",
+        "productivity"
+      ],
+      "engines": {
+        "claude-code": ">=1.0.0"
+      },
+      "capabilities": [
+        "slash-commands",
+        "file-operations",
+        "git-operations",
+        "github-integration"
+      ],
+      "files": [
+        "plugin.js",
+        "install-plugin.js",
+        "package.json",
+        "README-PLUGIN.md",
+        "ccpm/"
+      ],
+      "installScript": "install-plugin.js install",
+      "dependencies": {
+        "node": ">=14.0.0",
+        "git": ">=2.0.0"
+      },
+      "ccpm": {
+        "version": "latest",
+        "install-path": "./ccpm",
+        "config-file": "ccpm.config"
+      },
+      "commands": {
+        "install": "node install-plugin.js install",
+        "update": "node install-plugin.js update",
+        "uninstall": "node install-plugin.js uninstall",
+        "status": "node install-plugin.js status"
+      }
+    }
+  ]
+}
