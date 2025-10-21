@@ -20,7 +20,7 @@
       "license": "MIT",
       "homepage": "https://jeffersonnunn.com",
       "repository": "https://github.com/jeffersonwarrior/ccpm.git",
-      "source": "https://github.com/jeffersonwarrior/ccpm/archive/main.zip",
+      "source": "./",
       "keywords": [
         "claude-code",
         "project-management",
