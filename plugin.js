@@ -70,8 +70,22 @@ class CCPMPlugin {
 
     // Create .claude/commands directory if it doesn't exist
     if (!fs.existsSync(commandsDir)) {
-      fs.mkdirSync(commandsDir, { recursive: true });
-      console.log('📁 Created .claude/commands directory');
+      try {
+        fs.mkdirSync(commandsDir, { recursive: true });
+        console.log('📁 Created .claude/commands directory');
+      } catch (error) {
+        if (error.code === 'EACCES') {
+          console.log('❌ Permission denied creating .claude/commands directory');
+          console.log('💡 The .claude directory exists but is not writable by the current user.');
+          console.log('🔧 Try one of these solutions:');
+          console.log('   1. Run: chmod -R 755 .claude (may require sudo)');
+          console.log('   2. Change the owner: sudo chown -R $(whoami) .claude');
+          console.log('   3. Remove and recreate: rm -rf .claude and try again');
+          throw new Error(`Permission denied: Cannot create .claude/commands directory. ${error.message}`);
+        } else {
+          throw error;
+        }
+      }
     }
 
     const ccpmCommandsDir = path.join(process.cwd(), 'commands');
