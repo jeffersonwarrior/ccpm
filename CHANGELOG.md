@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.6] - 2025-10-22
+
+### 🐛 Fixed
+- **pm-help Command**: Fixed pm-help command to execute JavaScript instead of displaying markdown documentation
+- **Command Symlinks**: Updated symlinks in .claude/commands/ to point to executable files instead of .md files
+- **Command Discovery**: Resolved issues where commands showed file content instead of executing functionality
+
+### 🚀 Added
+- **Executable Command Files**: Created JavaScript implementations for core commands (pm-help.js, pm-init.js, pm-status.js)
+- **Dynamic Help System**: Enhanced help command with automatic command discovery and categorization
+- **Command Descriptions**: Support for extracting descriptions from both .md and .js command files
+- **Docker Testing**: Comprehensive testing in containerized environment to verify command functionality
+
+### 🔧 Improved
+- **Command Execution**: All commands now execute properly instead of showing static documentation
+- **Error Handling**: Better error messages and fallback mechanisms for command execution
+- **Command Organization**: Commands are now properly categorized and displayed in help system
+- **Version Consistency**: Updated version references in code and configuration files
+
+### 📋 Context
+- This release addresses the core issue where /pm-help was displaying documentation rather than executing commands
+- Users were experiencing broken command functionality due to symlinks pointing to markdown files instead of executables
+- The fix ensures that all CCPM commands execute properly and provide expected functionality
+- Tested and verified in both local and Docker environments
+
+---
+
+## [1.0.5] - 2025-10-21
+
+### 🐛 Fixed
+- **Skills Display**: Fixed skills display in /pm-help command
+- **Directory Structure**: Added missing skills directory structure for CCPM plugin
+
+---
+
 ## [1.0.3] - 2025-10-21
 
 ### 🐛 Fixed
