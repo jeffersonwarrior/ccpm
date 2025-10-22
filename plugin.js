@@ -13,7 +13,7 @@ const { execSync } = require('child_process');
 class CCPMPlugin {
   constructor() {
     this.name = '@jeffersonwarrior/ccpm';
-    this.version = '1.0.2';
+    this.version = '1.0.5';
     this.description = 'Claude Code PM - Project management workflow plugin';
     this.repoUrl = 'https://github.com/jeffersonwarrior/ccpm.git';
     this.ccpmDir = path.join(process.cwd(), 'ccpm');

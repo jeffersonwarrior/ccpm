@@ -18,6 +18,7 @@ Show help for CCPM commands.
 - `issue` - Issue management
 - `worktree` - Git worktree management
 - `agent` - AI agent management
+- `skills` - Skills and AI agent management
 
 ## Examples:
 
@@ -26,4 +27,5 @@ Show help for CCPM commands.
 /pm help init              # Show help for init command
 /pm help prd               # Show PRD management commands
 /pm help epic-start        # Show help for epic-start command
+/pm help skills            # Show skills management commands
 ```
