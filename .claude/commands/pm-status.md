@@ -1,1 +1,0 @@
-/Users/jeffersonnunn/ccpm/commands/pm-status.md
