@@ -188,7 +188,7 @@ The plugin provides:
     ├── agents/           # AI agent definitions
     ├── scripts/          # Utility scripts
     ├── rules/            # Processing rules
-    └── ccpm.config       # Configuration file
+    └── ccpm.config.json # Configuration file
 ```
 
 ## Integration with Claude Code
@@ -203,7 +203,7 @@ The plugin integrates seamlessly with Claude Code by:
 
 ## Configuration
 
-After installation, configure CCPM by editing `ccpm/ccpm.config`:
+After installation, configure CCPM by editing `ccpm/ccpm.config.json`:
 
 ```json
 {
@@ -224,7 +224,7 @@ After installation, configure CCPM by editing `ccpm/ccpm.config`:
 
 If you previously manually installed CCPM:
 
-1. Backup your current `ccpm.config` file
+1. Backup your current `ccpm.config.json` file
 2. Run `node install-plugin.js install`
 3. Restore your configuration to the new location
 4. Delete the old manual installation

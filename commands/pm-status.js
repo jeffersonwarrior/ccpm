@@ -15,7 +15,7 @@ console.log(`   Installation: ${fs.existsSync(ccpmDir) ? '✅ Installed' : '❌ 
 console.log(`   Path: ${ccpmDir}`);
 
 if (fs.existsSync(ccpmDir)) {
-  const configPath = path.join(ccpmDir, 'ccpm.config');
+  const configPath = path.join(ccpmDir, 'ccpm.config.json');
   console.log(`   Config: ${fs.existsSync(configPath) ? '✅ Found' : '⚠️  Not configured'}`);
 
   // Check if GitHub is configured

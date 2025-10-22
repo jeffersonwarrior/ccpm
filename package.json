@@ -34,6 +34,6 @@
   "ccpm": {
     "version": "latest",
     "install-path": "./ccpm",
-    "config-file": "ccpm.config"
+    "config-file": "ccpm.config.json"
   }
 }

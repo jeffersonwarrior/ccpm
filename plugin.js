@@ -157,7 +157,7 @@ class CCPMPlugin {
     console.log(`   Path: ${this.ccpmDir}`);
 
     if (fs.existsSync(this.ccpmDir)) {
-      const configPath = path.join(this.ccpmDir, 'ccpm.config');
+      const configPath = path.join(this.ccpmDir, 'ccpm.config.json');
       console.log(`   Config: ${fs.existsSync(configPath) ? '✅ Found' : '⚠️  Not configured'}`);
     }
 
@@ -229,7 +229,7 @@ class CCPMPlugin {
    * Backup configuration file
    */
   backupConfig() {
-    const configPath = path.join(this.ccpmDir, 'ccpm.config');
+    const configPath = path.join(this.ccpmDir, 'ccpm.config.json');
     if (fs.existsSync(configPath)) {
       const backupPath = path.join(process.cwd(), 'ccpm.config.backup');
       fs.copyFileSync(configPath, backupPath);
@@ -243,7 +243,7 @@ class CCPMPlugin {
    */
   restoreConfig(backupPath) {
     if (fs.existsSync(backupPath)) {
-      const configPath = path.join(this.ccpmDir, 'ccpm.config');
+      const configPath = path.join(this.ccpmDir, 'ccpm.config.json');
       fs.copyFileSync(backupPath, configPath);
       console.log('✅ Configuration restored');
     }
