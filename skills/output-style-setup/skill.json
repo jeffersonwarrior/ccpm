@@ -1,0 +1,5 @@
+{
+  "name": "output-style-setup",
+  "description": "Use this agent to create a Claude Code output style.",
+  "tools": ["Read", "Write", "Edit", "Glob", "Grep"]
+}
